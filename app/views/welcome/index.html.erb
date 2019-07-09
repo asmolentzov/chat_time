@@ -1,0 +1,9 @@
+<h1>Welcome to Chat Time!</h1>
+
+<%= form_tag '/chat', method: 'get' do %>
+  <%= label_tag :user_name, "Who are you?" %>
+  <%= text_field_tag :user_name %>
+  <%= label_tag :other_user_name, "Who do you want to chat with?" %>
+  <%= text_field_tag :other_user_name %>
+  <%= submit_tag "Chat!" %>
+<% end %>
