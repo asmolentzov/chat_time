@@ -27,12 +27,15 @@ describe 'As a user' do
       message_2 = Message.create(sender: @user_2, receiver: @user_1, content: "Hello, also friend!")
       message_3 = Message.create(sender: @user_1, receiver: @user_2, content: "How are you?")
       message_4 = Message.create(sender: @user_2, receiver: @user_1, content: "Spiffy!")
-      visit '/chat' 
+      visit '/'
+      fill_in :user_name, with: @user_1.name
+      fill_in :other_user_name, with: @user_2.name
+      click_button("Chat!")
       
       expect(page).to have_content("#{@user_1.name}: #{message_1.content}")
       expect(page).to have_content("#{@user_2.name}: #{message_2.content}")
-      expect(page).to have_content("#{@user_3.name}: #{message_3.content}")
-      expect(page).to have_content("#{@user_4.name}: #{message_4.content}")
+      expect(page).to have_content("#{@user_1.name}: #{message_3.content}")
+      expect(page).to have_content("#{@user_2.name}: #{message_4.content}")
     end
   end
 end

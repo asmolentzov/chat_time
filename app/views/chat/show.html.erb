@@ -1,2 +1,7 @@
 <h1>Now CHAT!</h1>
 <h3>Hi <%= @user_1.name %>! You are now chatting with <%= @user_2.name %>.</h3>
+<ul>  
+  <% @messages.each do |message| %>
+    <li><strong><%= message.sender.name %>: </strong><%= message.content %></li>
+  <% end %>
+</ul>
