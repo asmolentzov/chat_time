@@ -52,5 +52,14 @@ describe 'As a user' do
       expect(message.receiver).to eq(@user_2)
       expect(message.content).to eq(content)
     end
+    it 'can refresh messages' do
+      new_message = Message.create(content: "New exciting message!", sender: @user_2, receiver: @user_1)
+      
+      expect(page).to_not have_content(new_message.content)
+
+      click_on "Get New Messages"
+      
+      expect(page).to have_content(new_message.content)
+    end
   end
 end
