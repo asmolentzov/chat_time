@@ -12,3 +12,5 @@
   <%= f.hidden_field(:receiver, value: @user_2.id) %>
   <%= f.submit "Send" %>
 <% end %>
+<br />
+<strong><%= link_to "Get New Messages", chat_path(user_name: @user_1.name, other_user_name: @user_2.name) %></strong>
