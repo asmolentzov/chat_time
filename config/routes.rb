@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get '/chat', to: 'chat#show'
+  
+  resources :messages, only: [:create]
 end

@@ -42,7 +42,7 @@ describe 'As a user' do
     end
     it 'can send a new message' do
       content = 'Hello, friend!'
-      fill_in :message, with: content
+      fill_in :message_content, with: content
       click_button "Send"
       
       expect(current_path).to eq(chat_path)
