@@ -20,6 +20,18 @@ describe 'As a user' do
       expect(current_path).to eq(chat_path)
       expect(page).to have_content("Hi " + @user_1.name + "! You are now chatting with " + @user_2.name + ".")
     end
+    it 'can start a chat even if new to the site' do
+      new_user_name = "Robot"
+      new__user_name_two = "Chatbot"
+      visit '/'
+      
+      fill_in :user_name, with: new_user_name
+      fill_in :other_user_name, with: new__user_name_two
+      click_button("Chat!")
+      
+      expect(current_path).to eq(chat_path)
+      expect(page).to have_content("Hi " + new_user_name + "! You are now chatting with " + new__user_name_two + ".")
+    end
   end
 
   describe 'on the chat page' do
