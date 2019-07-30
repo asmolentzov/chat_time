@@ -8,5 +8,7 @@
 <%= form_for @message do |f| %>
   <%= f.label "New Message" %>
   <%= f.text_field :content %>
+  <%= f.hidden_field(:sender, value: @user_1.id) %>
+  <%= f.hidden_field(:receiver, value: @user_2.id) %>
   <%= f.submit "Send" %>
 <% end %>
